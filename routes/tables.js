@@ -114,6 +114,9 @@ router.get('/signupCustomer', function(req, res, next) {
 router.get('/homePageRender',function(req,res,next){
   res.render('customerlogin');
 })
+router.get('/hRender',function(req,res,next){
+  res.render('customerlogin');
+})
 
 router.get('/',function(req,res,next){
   res.render('landingpage');

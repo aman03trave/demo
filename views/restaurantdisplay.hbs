@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Node.js Queries</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<a class="navbar-brand" href="#">Node.js Queries</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="#">Logout</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Main content -->
+	<div class="container my-5">
+		<h1>Node.js Queries</h1>
+		<p>Here are some example queries you can run:</p>
+
+		<!-- Query list -->
+		<ul>
+			<li>SELECT * FROM customers;</li>
+			<li>SELECT * FROM restaurants;</li>
+			<li>SELECT * FROM bookings WHERE date = '2023-06-01';</li>
+			<li>SELECT * FROM reviews WHERE rating >= 4.5;</li>
+		</ul>
+
+		<!-- Button group -->
+		<div class="my-5">
+			<button type="button" class="btn btn-primary mr-3">Write a Review</button>
+			<button type="button" class="btn btn-primary">Book a Table</button>
+		</div>
+
+	</div>
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
