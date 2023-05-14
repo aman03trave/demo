@@ -1,143 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Customer Login - Restaurant Finder</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <style>
-    body {
-      background-color: #545252;
-    }
-    .navbar {
-      background-color: #9933cc;
-    }
-    .navbar-brand {
-      color: white;
-      font-size: 24px;
-      font-weight: bold;
-    }
-    .navbar-nav > li > a {
-      color: white;
-      font-weight: bold;
-    }
-    .btn-search {
-      background-color: #9933cc;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 20px;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-    .btn-search:hover {
-      background-color: #660066;
-    }
-    .btn-review {
-      background-color: #ffcc00;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 20px;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-    .btn-review:hover {
-      background-color: #e6b800;
-    }
-    .btn-book {
-      background-color: #33cc33;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 20px;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-    .btn-book:hover {
-      background-color: #29a329;
-    }
-    .login-box {
-      margin-top: 50px;
-      background-color: #fff;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #999;
-    }
-    .login-box input[type="text"], .login-box input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: none;
-      border-radius: 5px;
-      box-shadow: 0 0 5px #ccc;
-      transition: box-shadow 0.3s;
-    }
-    .login-box input[type="text"]:focus, .login-box input[type="password"]:focus {
-      outline: none;
-      box-shadow: 0 0 10px #999;
-    }
-    .login-box button[type="submit"] {
-      width: 100%;
-      padding: 10px;
-      background-color: #9933cc;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .login-box button[type="submit"]:hover {
-      background-color: #660066;
-    }
-  </style>
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Chew and Review</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <br>
-  <div class="container">
-<div class="row">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">Book a Table</div>
-        <div class="card-body">
-          <form>
-            <div class="form-group">
-              <label for="restaurant_id">Restaurant Email:</label>
-              <input type="text" class="form-control" id="restaurant_id" placeholder="Enter Restaurant Email">
-            </div>
-            <div class="form-group">
-              <label for="customer_id">Cusotmer Email:</label>
-              <input type="text" class="form-control" id="customer_id" placeholder="Enter Cusotmer Email">
-            </div>
-            <div class="form-group">
-                <label for="members">Members:</label>
-                <input type="number" class="form-control" id="members" placeholder="members">
-              </div>
-            
-            <div class="form-group">
-              <label for="time">Time:</label>
-              <input type="time" class="form-control" id="time">
-            </div>
-            <button type="submit" class="btn btn-primary">Book Table</button>
-          </form>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Book Table</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <a class="btn btn-outline-danger my-2 my-sm-0" href="/logout" role="button">Logout</a>
+        </form>
       </div>
+    </nav>
+
+    <div class="container mt-4">
+      <h2>Book Table</h2>
+      <form action="/bookTable" method="post">
+        <div class="form-group">
+          <label for="res_id">Restaurant ID:</label>
+          <input type="text" class="form-control" id="res_id" placeholder="Enter restaurant ID" name="res_id">
+        </div>
+        <div class="form-group">
+          <label for="timeslot">Time Slot:</label>
+          <input type="text" class="form-control" id="timeslot" placeholder="Enter time slot" name="timeslot">
+        </div>
+        <div class="form-group">
+          <label for="cust_id">Customer ID:</label>
+          <input type="text" class="form-control" id="cust_id" placeholder="Enter customer ID" name="cust_id">
+        </div>
+        <div class="form-group">
+          <label for="num_tables">Number of Tables:</label>
+          <input type="number" class="form-control" id="num_tables" placeholder="Enter number of tables" name="num_tables">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
-  </div>
-  </div>
-</body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
 </html>

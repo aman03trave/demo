@@ -205,7 +205,6 @@ router.get("/bookTable", function (req, res, next) {
   );
 });
 
-
 // create a get funcion to call CREATE PROCEDURE update_table_info6(rest_id VARCHAR(20), time_slot VARCHAR(20), tot_tables INT, avail_tables INT)
 router.get("/updateTable", function (req, res, next) {
   const rest_id = req.query.rest_id;
@@ -230,7 +229,7 @@ router.get("/updateTable", function (req, res, next) {
 
 // create a get funcion to call  CREATE PROCEDURE update_menu_item(IN res_id_param VARCHAR(20),IN item_id_param INT,IN cuisine1_param VARCHAR(20),IN cuisine2_param VARCHAR(20),IN cuisine3_param VARCHAR(20),IN item_name_param VARCHAR(20),IN item_type_param VARCHAR(20),IN item_price_param DECIMAL(10,2),IN item_desc_param VARCHAR(50),IN item_avail_param BOOLEAN)
 router.get("/updateItem", function (req, res, next) {
-  const res_id_param = 'pai@gmail.com';
+  const res_id_param = "pai@gmail.com";
   const item_id_param = req.query.item_id;
   const cuisine1_param = req.query.cuisine1;
   const cuisine2_param = req.query.cuisine2;
@@ -261,21 +260,17 @@ router.get("/showTableDetails", function (req, res, next) {
   const res_id = req.query.res_id;
 
   // call database procedure
-  connection.query(
-    `CALL show_table_details('${res_id}')`,
-    (err, result) => {
-
-      if (err) {
-        console.error(err);
-        res.status(500).send("Internal Server Error");
-      } else {
-        console.log(result[0]);
-        res.render("showtabledetails", {
-          data: result[0],
-        });
-      }
+  connection.query(`CALL show_table_details('${res_id}')`, (err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Internal Server Error");
+    } else {
+      console.log(result[0]);
+      res.render("showtabledetails", {
+        data: result[0],
+      });
     }
-  );
+  });
 });
 
 // create a get function to call CALL bookTableProcedure('onee@gmail.com', '12PM to 2PM', 'sai@gmail.com',3, @result);
@@ -298,10 +293,8 @@ router.get("/bookTable", function (req, res, next) {
   );
 });
 
-
-
 router.get("/booktablerender", function (req, res, next) {
-  res.render("booktable");
+  res.render("showavailabletable");
 });
 
 router.get("/updateItemRender", function (req, res, next) {
