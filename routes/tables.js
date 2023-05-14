@@ -185,11 +185,11 @@ router.get("/addReview", function (req, res, next) {
 
 // Create  a get function to call bookTableProcedure (IN p_res_id VARCHAR(20), IN p_timeslot VARCHAR(20), IN p_cust_id VARCHAR(20), IN p_num_tables INT, OUT p_result INT)
 router.get("/bookTable", function (req, res, next) {
-  const p_res_id = req.query.restaurant_id;
-  const p_timeslot = req.query.time;
-  const p_cust_id = req.query.customer_id;
-  const p_num_tables = req.query.tables;
-
+  const p_res_id = req.query.res_id;
+  const p_timeslot = req.query.timeslot;
+  const p_cust_id = req.query.cust_id;
+  const p_num_tables = req.query.num_tables;
+  console.log(p_res_id, p_timeslot, p_cust_id, p_num_tables);
   // call database procedure
   connection.query(
     `CALL bookTableProcedure ('${p_res_id}', '${p_timeslot}', '${p_cust_id}', '${p_num_tables}', @p_result)`,
@@ -199,7 +199,7 @@ router.get("/bookTable", function (req, res, next) {
         res.status(500).send("Internal Server Error");
       } else {
         console.log(result);
-        res.redirect("/viewTables/booktablerender");
+        res.redirect("/viewTables/homePageRender");
       }
     }
   );
@@ -266,7 +266,7 @@ router.get("/showTableDetails", function (req, res, next) {
       res.status(500).send("Internal Server Error");
     } else {
       console.log(result[0]);
-      res.render("showtabledetails", {
+      res.render("booktable", {
         data: result[0],
       });
     }
@@ -297,8 +297,16 @@ router.get("/booktablerender", function (req, res, next) {
   res.render("showavailabletable");
 });
 
+router.get("/booktablewithavailabilityrender", function (req, res, next) {
+  res.render("booktable");
+});
+
 router.get("/updateItemRender", function (req, res, next) {
   res.render("updateitem");
+});
+
+router.get("/showAllReview", function (req, res, next) {
+  res.render("showallreviews");
 });
 
 router.get("/homePageRender", function (req, res, next) {

@@ -38,8 +38,60 @@
     </nav>
 
     <div class="container mt-4">
+
+      {{!-- show the data I am getting in tabuolar form [
+      RowDataPacket {
+      timeslot: '12PM to 2PM',
+      tot_table: 10,
+      avail_table: 2
+      },
+      RowDataPacket {
+      timeslot: '1PM to 3PM',
+      tot_table: 12,
+      avail_table: 7
+      },
+      RowDataPacket {
+      timeslot: '2PM to 4PM',
+      tot_table: 8,
+      avail_table: 3
+      },
+      RowDataPacket {
+      timeslot: '3PM to 5PM',
+      tot_table: 6,
+      avail_table: 2
+      },
+      RowDataPacket {
+      timeslot: '4PM to 5PM',
+      tot_table: 15,
+      avail_table: 3
+      },
+      RowDataPacket {
+      timeslot: '8PM to 9PM',
+      tot_table: 15,
+      avail_table: 5
+      }
+      ] --}}
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Time Slot</th>
+            <th>Total Tables</th>
+            <th>Available Tables</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each data}}
+          <tr>
+            <td>{{this.timeslot}}</td>
+            <td>{{this.tot_table}}</td>
+            <td>{{this.avail_table}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+
       <h2>Book Table</h2>
-      <form action="/bookTable" method="post">
+      <form action="/viewTables/bookTable" method="get">
         <div class="form-group">
           <label for="res_id">Restaurant ID:</label>
           <input type="text" class="form-control" id="res_id" placeholder="Enter restaurant ID" name="res_id">
