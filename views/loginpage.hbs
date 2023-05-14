@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Additem - Chew and Review</title>
+  <title>Login - Chew and Review</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <style>
     body {
-      background-color: #f9f9f9;
+      background-color: #585656;
     }
     .login-box {
       background-color: #fff;
@@ -75,7 +75,7 @@
       font-size: 24px;
       font-weight: bold;
     }
-    .navbar-nav > li > a {
+    .navbar-nav  li a {
       color: white;
       font-weight: bold;
     }
@@ -90,7 +90,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="homepage.html">Home</a>
+            <a class="nav-link" href="http://localhost:3306/viewTables/">Home</a>
           </li>
         </ul>
       </div>
@@ -98,31 +98,16 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-4 login-box">
-          <h1 class="text-center mb-4">Add Item</h1>
-          <form>
-            <div class="form-group">
-              <label for="username">Item Name</label>
-              <input type="text" class="form-control" id="username" placeholder="Enter Item Name">
-            </div>
-            <div class="form-group">
-                <label for="username">Item Id</label>
-                <input type="text" class="form-control" id="username" placeholder="Enter Item Id">
-              </div>
-              <div class="form-group">
-                <label for="description">Item Description</label>
-                <input type="text" class="form-control" id="description" placeholder="Enter item description">
-              </div>
-              <div class="form-group">
-                <label for="type">Item Id</label>
-                <input type="text" class="form-control" id="type" placeholder="Enter food type">
-              </div>
-              <div class="form-group">
-                <label for="price">Item Price</label>
-                <input type="number" class="form-control" id="price" placeholder="Enter item price">
-              </div>
-              
-            <button type="submit" class="btn btn-submit btn-block mt-4">Submit</button>
-          </form>
+          <h1 class="text-center mb-4">Login</h1>
+          <form method="get" action="/viewTables/loginpost">
+  <label for="email">Username:</label>
+  <input type="text" id="email" name="email" required>
+  <br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required>
+  <br>
+  <button type="submit">Log in</button>
+</form>
         </div>
       </div>
     </div>

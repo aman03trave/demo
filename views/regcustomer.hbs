@@ -2,47 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Login - Chew and Review</title>
+  <title>Sign Up - Chew and Review</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <style>
     body {
-      background-color: #585656;
+      background-color: #676565;
     }
-    .login-box {
-      background-color: #fff;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-      border-radius: 10px;
-      padding: 30px;
-      margin-top: 50px;
-    }
-    .form-control:focus {
-      border-color: #9933cc;
-      box-shadow: none;
-    }
-    .btn-submit {
-      background-color: #9933cc;
-      border-color: #9933cc;
-      color: #fff;
-      font-weight: bold;
-    }
-    .btn-submit:hover {
-      background-color: #7b1fa2;
-      border-color: #7b1fa2;
-    }
-    body {
-      background-color: #474545;
-    }
-    .login-box {
+    .signup-box {
       margin-top: 50px;
       background-color: #f2f2f2;
       padding: 40px;
       border-radius: 10px;
       box-shadow: 0 0 10px #999;
     }
-    .login-box input[type="text"], .login-box input[type="password"], .login-box select {
+    .signup-box input[type="text"], .signup-box input[type="password"], .signup-box input[type="email"], .signup-box select {
       width: 100%;
       padding: 10px;
       margin-bottom: 20px;
@@ -51,11 +27,11 @@
       box-shadow: 0 0 5px #ccc;
       transition: box-shadow 0.3s;
     }
-    .login-box input[type="text"]:focus, .login-box input[type="password"]:focus, .login-box select:focus {
+    .signup-box input[type="text"]:focus, .signup-box input[type="password"]:focus, .signup-box input[type="email"]:focus, .signup-box select:focus {
       outline: none;
       box-shadow: 0 0 10px #999;
     }
-    .login-box button[type="submit"] {
+    .signup-box button[type="submit"] {
       width: 100%;
       padding: 10px;
       background-color: #9933cc;
@@ -64,7 +40,7 @@
       border-radius: 5px;
       cursor: pointer;
     }
-    .login-box button[type="submit"]:hover {
+    .signup-box button[type="submit"]:hover {
       background-color: #660066;
     }
     .navbar {
@@ -90,32 +66,51 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+            <a class="nav-link" href="homepage.html">Home</a>
           </li>
         </ul>
       </div>
     </nav>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-md-4 login-box">
-          <h1 class="text-center mb-4">Login</h1>
-          <form>
+        <div class="col-md-6 signup-box">
+          <h1 class="text-center mb-4">Sign Up</h1>
+          <form method="get" action="/viewTables/signupCustomer">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name= "name" placeholder="Enter your name">
+              </div>
             <div class="form-group">
               <label for="username">Username</label>
-              <input type="text" class="form-control" id="username" placeholder="Enter username">
+              <input type="text" class="form-control" id="username" name= "username" placeholder="Enter username">
             </div>
             <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" id="password" placeholder="Enter password">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name= "email" placeholder="Enter email">
             </div>
-           
-            <button type="submit" class="btn btn-submit btn-block mt-4">Submit</button>
+            <div class="form-group">
+                <div class="row">
+                  <div class="col">
+                    <label for="number1">Phone1</label>
+                    <input type="number" class="form-control" id="phonenumber" name= "number1" placeholder="Phone Number">
+                  </div>
+                  <div class="col">
+                    <label for="number2">Phone2(Optional)</label>
+                    <input type="number" class="form-control" id="phonenumber" name= "number2" placeholder="Phone Number">
+                  </div>
+                </div>
+              </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+            </div>
+            <button type="submit" class="btn btn-submit btn-block mt-4">Sign Up</button>
           </form>
         </div>
       </div>
     </div>
   </body>
-</html>
+  
+  
+  </html>
+  
