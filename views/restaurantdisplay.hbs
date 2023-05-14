@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Node.js Queries</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<a class="navbar-brand" href="#">Node.js Queries</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="#">Logout</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Main content -->
+	<div class="container my-5">
+		<h1>Node.js Queries</h1>
+		<p>Here are some example queries you can run:</p>
+
+
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Username</th>
+					<th>Timings</th>
+					<th>Average Rating</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each data}}
+				<tr>
+					<td>{{this.username}}</td>
+					<td>{{this.timings}}</td>
+					<td>{{this.avg_rating}}</td>
+				</tr>
+				{{/each}}
+			</tbody>
+
+		<!-- Button group -->
+		<div class="my-5">
+			
+			<a type="button" href="http://localhost:3308/viewTables/reviewRender" class="btn btn-primary mr-3">Write a Review</input>
+			<a type="button" href="http://localhost:3308/viewTables/bookTableRender" class="btn btn-primary">Book a Table</a>
+			
+		</div>
+		{{!-- create button to redirect on  --}}
+	</div>
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -103,18 +103,22 @@
             <div class="card">
               <div class="card-header">Review</div>
               <div class="card-body">
-                <form>
+                <form action="/viewTables/addReview">
                   <div class="form-group">
-                    <label for="restaurant-name">Restaurant Name:</label>
-                    <input type="text" class="form-control" id="restaurant-name" placeholder="Enter Restaurant Name">
+                    <label for="customer_id">Customer email:</label>
+                    <input type="text" class="form-control" name="customer_id" id="customer_id" placeholder="Enter Customer Id">
+                  </div>
+                  <div class="form-group">
+                    <label for="restaurant_id">Restaurant email:</label>
+                    <input type="text" class="form-control" name="restaurant_id" id="restaurant_id" placeholder="Enter Restaurant Id">
                   </div>
                   <div class="form-group">
                     <label for="over">Overall Rating:</label>
-                    <input type="number" class="form-control" id="rating" placeholder="rating b/w 1-5">
+                    <input type="number" class="form-control" name="over" id="rating" placeholder="rating b/w 1-5">
                   </div>
                   <div class="form-group">
                     <label for="review">Write a Review:</label>
-                    <textarea class="form-control" id="review" rows="3"></textarea>
+                    <textarea class="form-control" name="review" id="review" rows="3"></textarea>
                   </div>
                   <button type="submit" class="btn btn-primary">Submit Review</button>
                 </form>
