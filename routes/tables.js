@@ -147,7 +147,7 @@ router.get("/getRestaurantDetail", function (req, res, next) {
   // call database procedure
   connection.query(
     // `CALL display_restaurants_in_pincode('${pincode}')`,
-    `CALL display_restaurants_in_pincode8('${pincode}')`,
+    `CALL display_restaurants_in_pincode('${pincode}')`,
     (err, result) => {
       if (err) {
         console.error(err);
@@ -200,6 +200,9 @@ router.get("/bookTable", function (req, res, next) {
         res.status(500).send("Internal Server Error");
       } else {
         console.log(result);
+        //Create an alert box to show booking confirmation
+
+
         res.redirect("/viewTables/homePageRender");
       }
     }
@@ -310,13 +313,10 @@ router.get("/bookTable", function (req, res, next) {
         console.log(result);
         const p_result = result[0][0]["@p_result"];
         if (p_result === 1) {
-          res.send(
-            "<script>alert('Congos! table booked')</script>"
-          );
+          alert("Congos! table booked");
+          res.send("<script>alert('Congos! table booked')</script>");
         } else if (p_result === -1) {
-          res.send(
-            "<script>alert('Oops table cant be booked')</script>"
-          );
+          res.send("<script>alert('Oops table cant be booked')</script>");
         } else {
           res.status(500).send("Internal Server Error");
         }
@@ -325,6 +325,8 @@ router.get("/bookTable", function (req, res, next) {
   );
 });
 //call procedure for showing review of a particular restaurant
+
+
 
 router.get("/getShowReviews", function (req, res, next) {
   const res_id = req.query.res_id;
@@ -337,8 +339,7 @@ router.get("/getShowReviews", function (req, res, next) {
     } else {
       // console.log(result[0]);
       console.log(result);
-      res.render("showallreviews", { data: result[0],
-      });
+      res.render("showallreviews", { data: result[0] });
     }
   });
 });
@@ -347,18 +348,23 @@ router.get("/getShowMenu", function (req, res, next) {
   const res_id = req.query.res_id;
 
   // call database procedure
-  connection.query(`CALL get_restaurant_details12('${res_id}')`, (err, result) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send("Internal Server Error");
-    } else {
-      // console.log(result[0]);
-      console.log(result);
-      res.render("showMenu", { data: result[1],
-      });
+  connection.query(
+    `CALL get_restaurant_details12('${res_id}')`,
+    (err, result) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send("Internal Server Error");
+      } else {
+        // console.log(result[0]);
+        console.log(result);
+        res.render("showMenu", { data: result[1] });
+      }
     }
-  });
+  );
 });
+
+
+
 
 router.get("/getMenuRender", function (req, res, next) {
   res.render("fetchmenudata");
@@ -439,6 +445,5 @@ router.get("/updateTableRender", function (req, res, next) {
 router.get("/fetchdataReviewsRender", function (req, res, next) {
   res.render("fetchdataforreviews");
 });
-
 
 module.exports = router;
