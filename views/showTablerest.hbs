@@ -25,7 +25,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost:3308/viewTables/homePageRender">Home</a>
+            <a class="nav-link" href="http://localhost:3308/viewTables/updateTableRender">Home</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -87,27 +87,6 @@
           {{/each}}
         </tbody>
 
-      <h2>Book Table</h2>
-      <form action="/viewTables/bookTable" method="get">
-        <div class="form-group">
-          <label for="res_id">Restaurant ID:</label>
-          <input type="text" class="form-control" id="res_id" placeholder="Enter restaurant ID" name="res_id">
-        </div>
-        <div class="form-group">
-          <label for="timeslot">Time Slot:</label>
-          <input type="text" class="form-control" id="timeslot" placeholder="Enter time slot" name="timeslot">
-        </div>
-        <div class="form-group">
-          <label for="cust_id">Customer ID:</label>
-          <input type="text" class="form-control" id="cust_id" placeholder="Enter customer ID" name="cust_id">
-        </div>
-        <div class="form-group">
-          <label for="num_tables">Number of Tables:</label>
-          <input type="number" class="form-control" id="num_tables" placeholder="1 table has a capacity of 4 memebers" name="num_tables">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

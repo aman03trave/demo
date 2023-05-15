@@ -275,20 +275,51 @@ router.get("/showTableDetails", function (req, res, next) {
 });
 
 // create a get function to call CALL bookTableProcedure('onee@gmail.com', '12PM to 2PM', 'sai@gmail.com',3, @result);
+// router.get("/bookTable", function (req, res, next) {
+//   const p_res_id = req.query.restaurant_id;
+//   const p_timeslot = req.query.time;
+
+//   // call database procedure
+//   connection.query(
+//     `CALL bookTableProcedure ('${p_res_id}', '${p_timeslot}', @p_result)`,
+//     (err, result) => {
+//       if (err) {
+//         console.error(err);
+//         res.status(500).send("Internal Server Error");
+//       } else {
+//         console.log(result);
+//         res.redirect("/viewTables/booktablerender");
+//       }
+//     }
+//   );
+// });
 router.get("/bookTable", function (req, res, next) {
-  const p_res_id = req.query.restaurant_id;
-  const p_timeslot = req.query.time;
+  const p_res_id = req.query.res_id;
+  const p_timeslot = req.query.timeslot;
+  const p_cust_id = req.query.cust_id;
+  const p_num_tables = req.query.num_tables;
 
   // call database procedure
   connection.query(
-    `CALL bookTableProcedure ('${p_res_id}', '${p_timeslot}', @p_result)`,
+    `CALL bookTableProcedure ('${p_res_id}', '${p_timeslot}', '${p_cust_id}', '${p_num_tables}', @p_result)`,
     (err, result) => {
       if (err) {
         console.error(err);
         res.status(500).send("Internal Server Error");
       } else {
         console.log(result);
-        res.redirect("/viewTables/booktablerender");
+        const p_result = result[0][0]["@p_result"];
+        if (p_result === 1) {
+          res.send(
+            "<script>alert('Congos! table booked')</script>"
+          );
+        } else if (p_result === -1) {
+          res.send(
+            "<script>alert('Oops table cant be booked')</script>"
+          );
+        } else {
+          res.status(500).send("Internal Server Error");
+        }
       }
     }
   );
@@ -323,7 +354,7 @@ router.get("/getShowMenu", function (req, res, next) {
     } else {
       // console.log(result[0]);
       console.log(result);
-      res.render("showMenu", { data: result[0],
+      res.render("showMenu", { data: result[1],
       });
     }
   });
