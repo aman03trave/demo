@@ -323,7 +323,7 @@ router.get("/getShowMenu", function (req, res, next) {
     } else {
       // console.log(result[0]);
       console.log(result);
-      res.render("showMenu", { data: result[0],
+      res.render("showMenu", { data: result[1],
       });
     }
   });
