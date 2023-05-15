@@ -146,7 +146,8 @@ router.get("/getRestaurantDetail", function (req, res, next) {
 
   // call database procedure
   connection.query(
-    `CALL display_restaurants_in_pincode('${pincode}')`,
+    // `CALL display_restaurants_in_pincode('${pincode}')`,
+    `CALL display_restaurants_in_pincode8('${pincode}')`,
     (err, result) => {
       if (err) {
         console.error(err);
@@ -229,7 +230,7 @@ router.get("/updateTable", function (req, res, next) {
 
 // create a get funcion to call  CREATE PROCEDURE update_menu_item(IN res_id_param VARCHAR(20),IN item_id_param INT,IN cuisine1_param VARCHAR(20),IN cuisine2_param VARCHAR(20),IN cuisine3_param VARCHAR(20),IN item_name_param VARCHAR(20),IN item_type_param VARCHAR(20),IN item_price_param DECIMAL(10,2),IN item_desc_param VARCHAR(50),IN item_avail_param BOOLEAN)
 router.get("/updateItem", function (req, res, next) {
-  const res_id_param = "pai@gmail.com";
+  const res_id_param = req.query.res_id;
   const item_id_param = req.query.item_id;
   const cuisine1_param = req.query.cuisine1;
   const cuisine2_param = req.query.cuisine2;
@@ -291,6 +292,49 @@ router.get("/bookTable", function (req, res, next) {
       }
     }
   );
+});
+//call procedure for showing review of a particular restaurant
+
+router.get("/getShowReviews", function (req, res, next) {
+  const res_id = req.query.res_id;
+
+  // call database procedure
+  connection.query(`CALL show_reviews('${res_id}')`, (err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Internal Server Error");
+    } else {
+      // console.log(result[0]);
+      console.log(result);
+      res.render("showallreviews", { data: result[0],
+      });
+    }
+  });
+});
+//showing the menu
+router.get("/getShowMenu", function (req, res, next) {
+  const res_id = req.query.res_id;
+
+  // call database procedure
+  connection.query(`CALL get_restaurant_details12('${res_id}')`, (err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Internal Server Error");
+    } else {
+      // console.log(result[0]);
+      console.log(result);
+      res.render("showMenu", { data: result[0],
+      });
+    }
+  });
+});
+
+router.get("/getMenuRender", function (req, res, next) {
+  res.render("fetchmenudata");
+});
+
+router.get("/showMenuRender", function (req, res, next) {
+  res.render("showMenu");
 });
 
 router.get("/booktablerender", function (req, res, next) {
@@ -360,5 +404,10 @@ router.get("/bookTableRender", function (req, res, next) {
 router.get("/updateTableRender", function (req, res, next) {
   res.render("updatetable");
 });
+
+router.get("/fetchdataReviewsRender", function (req, res, next) {
+  res.render("fetchdataforreviews");
+});
+
 
 module.exports = router;

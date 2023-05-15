@@ -9,29 +9,43 @@
 </head>
 <body>
 	<!-- Navbar -->
-	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-		<a class="navbar-brand" href="#">Node.js Queries</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="collapsibleNavbar">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="#">Logout</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar Name</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Actions
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="http://localhost:3308/viewTables/reviewRender">Write a Review</a>
+              <a class="dropdown-item" href="http://localhost:3308/viewTables/bookTableRender">Book a Table</a>
+			  <a class="dropdown-item" href="http://localhost:3308/viewTables/fetchdataReviewsRender" >See Review</a>
+			  <a class="dropdown-item" href="http://localhost:3308/viewTables/getMenuRender" >See Menu</a>
+			  <a class="dropdown-item" href="http://localhost:3308/viewTables/homepageRender">Home</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
 	<!-- Main content -->
 	<div class="container my-5">
-		<h1>Node.js Queries</h1>
-		<p>Here are some example queries you can run:</p>
+		<h1>Welcome, Customer</h1>
+		<p>Here are some restaurants:</p>
 
 
 		<table class="table table-bordered table-striped">
 			<thead>
 				<tr>
+					<th>Restaurant_id</th>
 					<th>Username</th>
 					<th>Timings</th>
 					<th>Average Rating</th>
@@ -40,6 +54,7 @@
 			<tbody>
 				{{#each data}}
 				<tr>
+					<td>{{this.res_id}}</td>
 					<td>{{this.username}}</td>
 					<td>{{this.timings}}</td>
 					<td>{{this.avg_rating}}</td>
@@ -48,15 +63,6 @@
 			</tbody>
 
 		<!-- Button group -->
-		<div class="my-5">
-			
-			<a type="button" href="http://localhost:3308/viewTables/reviewRender" class="btn btn-primary mr-3">Write a Review</input>
-			<a type="button" href="http://localhost:3308/viewTables/bookTableRender" class="btn btn-primary">Book a Table</a>
-			
-
-			<a type="button" href="http://localhost:3308/viewTables/showAllReview" class="btn btn-primary">See Review of a Restaurant</a>
-
-		</div>
 		{{!-- create button to redirect on  --}}
 	</div>
 

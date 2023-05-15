@@ -8,14 +8,14 @@
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar Name</a>
+      <a class="navbar-brand" href="#">Chew and Review</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost:3308/viewTables/homepageRender">Home</a>
+            <a class="nav-link" href="http://localhost:3308/viewTables/homePageRender">Home</a>
           </li>
         </ul>
       </div>
@@ -23,18 +23,41 @@
     
     <div class="container mt-3">
       <h1>Get Restaurant Info</h1>
-      <form action="/viewTables/showTableDetails" method="get">
+      <form action="/viewTables/getShowMenu" method="get">
         <div class="form-group">
           <label for="res_id">Restaurant ID</label>
           <input type="text" class="form-control" id="res_id" name="res_id">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-      {{!-- <div class="my-5">
-			<button type="button" class="btn btn-primary mr-3">Write a Review</button>
-			<button type="button" class="btn btn-primary">Book a Table</button>
-		</div> --}}
-
+      {{#if data}}
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Item ID</th>
+              <th scope="col">Item Name</th>
+              <th scope="col">Item Type</th>
+              <th scope="col">Item Price</th>
+              <th scope="col">Item Description</th>
+              <th scope="col">Item Availabile</th>
+              <th scope="col">cuisines</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each data}}
+              <tr>
+                <td>{{item_id}}</td>
+                <td>{{item_name}}</td>
+                <td>{{item_type}}</td>
+                <td>{{item_price}}</td>
+                <td>{{item_desc}}</td>
+                <td>{{item_avail}}</td>
+                <td>{{cuisines}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      {{/if}}
     </div>
     
     <!-- Include Bootstrap JS -->

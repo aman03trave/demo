@@ -25,39 +25,39 @@
 
 	<!-- Main content -->
 	<div class="container my-5">
-		<h1>Reviews</h1>
-		<p>Here are reviews:</p>
+		<h1>Menu</h1>
+		<p>Here are the items available:</p>
 
 		<!-- Query list -->
-	<div class="container mt-8">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Review ID</th>
-        <th>Customer ID</th>
-		<th>Restaurant ID</th>
-        <th>Date</th>
-		<th>Title</th>
-        <th>Description</th>
-        <th>Overall Rating</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      {{#each data}}
+		<div class="container mt-8">
+		  <table class="table">
+		    <thead>
+		      <tr>
+		        <th>Item ID</th>
+		        <th>Item Name</th>
+				<th>Item Type</th>
+		        <th>Item Price</th>
+		        <th>Description</th>
+		        <th>Item Availability</th>
+		        <th>Cuisines</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      {{#each data}}
 				<tr>
-					<td>{{this.review_id}}</td>
-					<td>{{this.cust_id}}</td>
-					<td>{{this.res_id}}</td>
-					<td>{{this.date}}</td>
-					<td>{{this.title}}</td>
-					<td>{{this.description}}</td>
-					<td>{{this.overall_rating}}</td>
+					<td>{{this.item_id}}</td>
+					<td>{{this.item_name}}</td>
+					<td>{{this.item_type}}</td>
+					<td>{{this.item_price}}</td>
+					<td>{{this.item_desc}}</td>
+					<td>{{this.item_avail}}</td>
+					<td>{{this.cuisines}}</td>
 				</tr>
-				{{/each}}
-    </tbody>
-  </table>
-</div>
+		      {{/each}}
+		    </tbody>
+		  </table>
+		</div>
+	</div>
 
 	<!-- Bootstrap JS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
